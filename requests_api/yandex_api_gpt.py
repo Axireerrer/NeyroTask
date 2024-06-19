@@ -58,11 +58,11 @@ async def ask_yandex_api_gpt(prompt: str, access_token: str, client_id: str) -> 
             end = time.time()
 
             # Расчет времени выполнения запроса
-            during_request_gigachat = float(end - start)
+            during_request_yandexgptapi = float(end - start)
 
             # Формирование данных для возврата
             data = {
-                'during_request_gigachat': during_request_gigachat,
+                'during_request_yandexgptapi': during_request_yandexgptapi,
                 'text': response_text,
             }
             print("Full response from API:", response_text)

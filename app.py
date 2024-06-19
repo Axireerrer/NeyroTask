@@ -43,7 +43,7 @@ try:
     gigachat_info = asyncio.run(ask_gigachat_api_gpt(prompt=prompt, access_token=access_token_gigachat))
     # Работа YANDEX_GPT_API
 
-    # yandex_info = asyncio.run(ask_yandex_api_gpt(access_token=access_token_yandex, client_id=yandex_client_id, prompt=prompt))
+    yandex_info = asyncio.run(ask_yandex_api_gpt(access_token=access_token_yandex, client_id=yandex_client_id, prompt=prompt))
 
     # Запись ответа на запрос от нейросети GIGACHAT в файл gigachat.txt
     with open("gigachat.txt", 'w', encoding='utf-8') as file:
@@ -51,8 +51,8 @@ try:
 
     # Запись ответа на запрос от нейросети YANDEX в файл yandexgpt.txt
 
-    # with open("yandexgpt.txt", 'w', encoding='utf-8') as file:
-    #     file.write(yandex_info['text']['result']['alternatives'][0]['text'])
+    with open("yandexgpt.txt", 'w', encoding='utf-8') as file:
+        file.write(yandex_info['text']['result']['alternatives'][0]['text'])
 
     # Создание и вывод запроса
     if __name__ == '__main__':
@@ -60,7 +60,7 @@ try:
         print()
         print("\tВремя работы GIGACHAT_GPT_API: ", gigachat_info['during_request_gigachat'])
         print()
-        # print("\tВремя работы YANDEX_GPT_API: ", yandex_info['during_request_gigachat'])
+        print("\tВремя работы YANDEX_GPT_API: ", yandex_info['during_request_yandexgptapi'])
 
 except Exception as e:
     print(f"An error occurred: {e}")
