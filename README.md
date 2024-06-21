@@ -29,6 +29,9 @@
 - requests_api/:
   - yandex_api_gpt.py: Интеграция с YandexGPT для генерации сказок. 
   - gigachat_api_gpt..py: Интеграция с GigaChat для генерации сказок.
+- file_operations/:
+  - file_gigachatgpt.py: Запись ответа нейросети GIGACHAT в файл.
+  - file_yandex.py: Запись ответа нейросети YANDEX GPT в файл.
 
 ## Использование
 
