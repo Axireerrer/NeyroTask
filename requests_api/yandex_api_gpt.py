@@ -60,6 +60,8 @@ async def ask_yandex_api_gpt(prompt: str, access_token: str, client_id: str) -> 
             # Расчет времени выполнения запроса
             during_request_yandexgptapi = float(end - start)
 
+            print("\tВремя работы YANDEX_GPT_API: ", during_request_yandexgptapi)
+
             # Формирование данных для возврата
             data = {
                 'during_request_yandexgptapi': during_request_yandexgptapi,

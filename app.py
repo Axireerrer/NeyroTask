@@ -45,14 +45,14 @@ try:
     # Работа GIGACHAT_GPT_API
 
     async def main():
-        gigachat_info = await ask_gigachat_api_gpt(prompt=prompt, access_token=access_token_gigachat)
-        yandex_info = await ask_yandex_api_gpt(access_token=access_token_yandex, client_id=yandex_client_id, prompt=prompt)
-
+        results = await asyncio.gather(
+            ask_yandex_api_gpt(access_token=access_token_yandex, client_id=yandex_client_id, prompt=prompt),
+            ask_gigachat_api_gpt(prompt=prompt, access_token=access_token_gigachat)
+        )
+        yandex_info, gigachat_info = results
         await write_output_in_yandex_file(yandex_info)
         await write_output_in_gigachat_file(gigachat_info)
-        print("\tВремя работы GIGACHAT_GPT_API: ", gigachat_info['during_request_gigachat'])
-        print()
-        print("\tВремя работы YANDEX_GPT_API: ", yandex_info['during_request_yandexgptapi'])
+
 
     # Создание и вывод запроса
     if __name__ == '__main__':

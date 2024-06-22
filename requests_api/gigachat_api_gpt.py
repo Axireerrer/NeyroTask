@@ -62,10 +62,10 @@ async def ask_gigachat_api_gpt(access_token: str, prompt: str) -> dict:
 
             # Вычисление времени выполнения запроса
             during_request_gigachat = float(end - start)
+            print("\tВремя работы GIGACHAT_GPT_API: ", during_request_gigachat)
 
             # Формирование данных для возврата
             data = {
-                'during_request_gigachat': during_request_gigachat,
                 'text': response_text,
             }
             return data
